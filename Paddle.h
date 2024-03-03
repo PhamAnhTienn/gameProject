@@ -22,12 +22,12 @@ public:
     int getHeight() { return height; }
 
     void setX(int newX) { x = newX; }
-    void setX(int newY) { x = newY; }
-    void setX(int newWidth) { x = newWidth; }
-    void setX(int newHeight) { x = newHeight; }
-
-    void renderPaddle(SDL_Renderer *renderer, Paddle &paddle);
-    void paddleMove(Paddle &paddle, const Uint8* currentKeyStates, bool moveLeft, bool moveRight);
+    void setY(int newY) { y = newY; }
+    void setWidth(int newWidth) { width = newWidth; }
+    void setHeight(int newHeight) { height = newHeight; }
 };
+
+void renderPaddle(SDL_Renderer *renderer, Paddle &paddle);
+void paddleMove(Paddle &paddle, const Uint8* currentKeyStates, bool moveLeft, bool moveRight);
 
 #endif
