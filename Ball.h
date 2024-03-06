@@ -14,8 +14,8 @@ public:
         this -> x = x;
         this -> y = y;
         this -> edge = edge;
-        Vx = 1;
-        Vy = 1;
+        Vx = 10;
+        Vy = 10;
     }
 
     int getX() { return x; }

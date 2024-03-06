@@ -9,7 +9,7 @@ void renderPaddle(SDL_Renderer *renderer, Paddle &paddle) {
     SDL_RenderFillRect(renderer, &paddleRect);
 }
 
-void paddleMove(Paddle &paddle, const Uint8* currentKeyStates, bool moveLeft, bool moveRight) {
+void paddleMove( Paddle &paddle, bool moveLeft, bool moveRight ) {
     if(moveLeft && paddle.getX() - paddleSpeed >= 0) {
         paddle.setX(paddle.getX() - paddleSpeed);
     }

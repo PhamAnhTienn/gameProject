@@ -28,6 +28,6 @@ public:
 };
 
 void renderPaddle(SDL_Renderer *renderer, Paddle &paddle);
-void paddleMove(Paddle &paddle, const Uint8* currentKeyStates, bool moveLeft, bool moveRight);
+void paddleMove(Paddle &paddle, bool moveLeft, bool moveRight);
 
 #endif
