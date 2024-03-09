@@ -23,8 +23,8 @@ int main(int argc, char* argv[]) {
     SDL_Window* window;
     SDL_Renderer* renderer;
 
-    Paddle paddle1(SCREEN_WIDTH / 2 - 25, SCREEN_HEIGHT - 10, 200, 10);
-    Ball ball(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, 10);
+    Paddle paddle1(SCREEN_WIDTH / 2 - 25, SCREEN_HEIGHT - 10, 100, 5);
+    Ball ball(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, 5);
 
     initSDL(window, renderer, 1000, 700, WINDOW_TITLE);
 

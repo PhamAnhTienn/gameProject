@@ -8,27 +8,27 @@ using namespace std;
 
 class Ball {
 private:
-    int x, y, edge, Vx, Vy;
+    int x, y, radius, Vx, Vy;
 public:
-    Ball(int x, int y, int edge) {
+    Ball(int x, int y, int radius) {
         this -> x = x;
         this -> y = y;
-        this -> edge = edge;
-        Vx = 10;
-        Vy = 10;
+        this -> radius = radius;
+        Vx = 5;
+        Vy = 5;
     }
 
     int getX() { return x; }
     int getY() { return y; }
     int getVx() { return Vx; }
     int getVy() { return Vy; }
-    int getEdge() { return edge; }
+    int getRadius() { return radius; }
 
     void setX(int newX) { x = newX; }
     void setY(int newY) { y = newY; }
     void setVx(int newVx) {Vx = newVx; }
     void setVy(int newVy) {Vy = newVy; }
-    void setEdge(int newEdge) { edge = newEdge; }
+    void setRadius(int newRadius) { radius = newRadius; }
 };
 
 void renderBall(SDL_Renderer *renderer, Ball &Ball);
