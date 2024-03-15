@@ -6,6 +6,7 @@
 #include "SDL_utils.h"
 #include "Paddle.h"
 #include "Ball.h"
+#include "Brick.h"
 using namespace std;
 
 const int SCREEN_WIDTH = 1000;
@@ -25,6 +26,9 @@ int main(int argc, char* argv[]) {
 
     Paddle paddle1(SCREEN_WIDTH / 2 - 25, SCREEN_HEIGHT - 10, 100, 5);
     Ball ball(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, 5);
+
+    Brick brick;
+    vector<Brick> bricks = brick.createBricks();
 
     initSDL(window, renderer, 1000, 700, WINDOW_TITLE);
 
@@ -58,6 +62,7 @@ int main(int argc, char* argv[]) {
 
         renderPaddle(renderer, paddle1);
         renderBall(renderer, ball);
+        drawBricks(renderer, bricks);
 
         SDL_RenderPresent(renderer);
         SDL_Delay(16);

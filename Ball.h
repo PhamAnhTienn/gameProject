@@ -3,6 +3,7 @@
 
 #include <SDL2/SDL.h>
 #include "Paddle.h"
+#include "Brick.h"
 #include <iostream>
 using namespace std;
 
@@ -34,5 +35,6 @@ public:
 void renderBall(SDL_Renderer *renderer, Ball &Ball);
 void ballMove(Ball &ball);
 bool handleCollision(Paddle &paddle, Ball &ball);
+void handleBrickCollision(Brick &brick, Ball &ball);
 
 #endif
