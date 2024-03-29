@@ -27,9 +27,6 @@ int main(int argc, char* argv[]) {
     Paddle paddle1(SCREEN_WIDTH / 2 - 25, SCREEN_HEIGHT - 10, 100, 5);
     Ball ball(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, 5);
 
-    Brick brick;
-    vector<Brick> bricks = brick.createBricks();
-
     initSDL(window, renderer, 1000, 700, WINDOW_TITLE);
 
     bool quit = false;
@@ -61,8 +58,7 @@ int main(int argc, char* argv[]) {
         SDL_RenderClear(renderer);
 
         renderPaddle(renderer, paddle1);
-        renderBall(renderer, ball);
-        drawBricks(renderer, bricks);
+        renderBall(renderer, ball.ballRect, ball);
 
         SDL_RenderPresent(renderer);
         SDL_Delay(16);

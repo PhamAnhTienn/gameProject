@@ -5,9 +5,9 @@ const int SCREEN_WIDTH = 1000;
 const int SCREEN_HEIGHT = 700;
 
 void renderBall(SDL_Renderer *renderer, Ball &Ball){
-    const int diameter = (Ball.getRadius() * 2);
-    int x_rect = Ball.getX() - Ball.getRadius();
-    int y_rect = Ball.getY() - Ball.getRadius();
+    const int diameter = (Ball.radius * 2);
+    int x_rect = Ball.x - Ball.radius;
+    int y_rect = Ball.y - Ball.radius;
 
     SDL_Rect ballRect = {x_rect, y_rect, diameter, diameter};
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
@@ -15,23 +15,23 @@ void renderBall(SDL_Renderer *renderer, Ball &Ball){
 }
 
 void ballMove(Ball &ball) {
-    ball.setX(ball.getX() + ball.getVx());
-    ball.setY(ball.getY() + ball.getVy());
+    ball.x += ball.Vx;
+    ball.y += ball.Vy;
 
-    if(ball.getX() - ball.getRadius() < 0 || ball.getX() + ball.getRadius() > SCREEN_WIDTH) {
-        ball.setVx( -ball.getVx() );
+    if(ball.x - ball.radius < 0 || ball.x + ball.radius > SCREEN_WIDTH) {
+        ball.Vx = -ball.Vx ;
     }
 
-    if(ball.getY() - ball.getRadius() < 0 || ball.getY() + ball.getRadius() > SCREEN_HEIGHT) {
-        ball.setVy( -ball.getVy() );
+    if(ball.y - ball.radius < 0 || ball.y + ball.radius > SCREEN_HEIGHT) {
+        ball.Vy = -ball.Vy ;
     }
 }
 
 
 bool handleCollision(Paddle &paddle, Ball &ball) {
-    if( ball.getX() + ball.getRadius() > paddle.getX() && ball.getX() - ball.getRadius() < paddle.getX() + paddle.getWidth() 
-   && ( ball.getY() + ball.getRadius() > paddle.getY() && ball.getY() - ball.getRadius() < paddle.getY() + paddle.getHeight() ) ) {
-            ball.setVy( -ball.getVy() );
+    if( ball.x + ball.radius > paddle.x && ball.x - ball.radius < paddle.x + paddle.width 
+   && ( ball.y + ball.radius > paddle.y && ball.y - ball.radius < paddle.y + paddle.height ) ) {
+            ball.Vy = -ball.Vy ;
             return true;
     }
     return false;

@@ -8,9 +8,10 @@
 using namespace std;
 
 class Ball {
-private:
-    int x, y, radius, Vx, Vy;
 public:
+    int x, y, radius, Vx, Vy;
+    SDL_Rect ballRect;
+
     Ball(int x, int y, int radius) {
         this -> x = x;
         this -> y = y;
@@ -18,23 +19,10 @@ public:
         Vx = 5;
         Vy = 5;
     }
-
-    int getX() { return x; }
-    int getY() { return y; }
-    int getVx() { return Vx; }
-    int getVy() { return Vy; }
-    int getRadius() { return radius; }
-
-    void setX(int newX) { x = newX; }
-    void setY(int newY) { y = newY; }
-    void setVx(int newVx) {Vx = newVx; }
-    void setVy(int newVy) {Vy = newVy; }
-    void setRadius(int newRadius) { radius = newRadius; }
 };
 
-void renderBall(SDL_Renderer *renderer, Ball &Ball);
+void renderBall(SDL_Renderer *renderer, SDL_Rect ballRect, Ball &Ball);
 void ballMove(Ball &ball);
 bool handleCollision(Paddle &paddle, Ball &ball);
-void handleBrickCollision(Brick &brick, Ball &ball);
 
 #endif
