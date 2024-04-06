@@ -10,23 +10,27 @@ void logSDLError(std::ostream& os, const std::string &msg, bool fatal)
     }
 }
 
+void logErrorAndExit(const std::string &msg)
+{
+    std::cerr << msg << std::endl;
+    exit(EXIT_FAILURE);
+}
+
 void initSDL(SDL_Window* &window, SDL_Renderer* &renderer,const int SCREEN_WIDTH, const int SCREEN_HEIGHT, const string &WINDOW_TITLE)
 {
     if (SDL_Init(SDL_INIT_EVERYTHING) != 0)
         logSDLError(std::cout, "SDL_Init", true);
 
+    if (!IMG_Init(IMG_INIT_PNG | IMG_INIT_JPG))
+        logErrorAndExit("SDL_image error: " + std::string(IMG_GetError()));
+
     window = SDL_CreateWindow(WINDOW_TITLE.c_str(), SDL_WINDOWPOS_CENTERED,
        SDL_WINDOWPOS_CENTERED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
-    //window = SDL_CreateWindow(WINDOW_TITLE.c_str(), SDL_WINDOWPOS_CENTERED, 
-        //SDL_WINDOWPOS_CENTERED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_FULLSCREEN_DESKTOP;
+    
     if (window == nullptr) logSDLError(std::cout, "CreateWindow", true);
 
-
-    //Khi chạy trong môi trường bình thường (không chạy trong máy ảo)
     renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | 
                                               SDL_RENDERER_PRESENTVSYNC);
-    //Khi chạy ở máy ảo (ví dụ tại máy tính trong phòng thực hành ở trường)
-    //renderer = SDL_CreateSoftwareRenderer(SDL_GetWindowSurface(window));
 
     if (renderer == nullptr) logSDLError(std::cout, "CreateRenderer", true);
 
@@ -39,6 +43,7 @@ void quitSDL(SDL_Window* window, SDL_Renderer* renderer)
 {
 	SDL_DestroyRenderer(renderer);
 	SDL_DestroyWindow(window);
+    IMG_Quit();
 	SDL_Quit();
 }
 

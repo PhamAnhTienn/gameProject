@@ -9,4 +9,4 @@ all:
 	VI DU:
 
 	g++ -I src/include -L src/lib -o main main.cpp SDL_utils.cpp Image.cpp Paddle.cpp Ball.cpp Sound.cpp Text.cpp Time.cpp -lmingw32 -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf -lSDL2_mixer
-
+    g++ -I src/include -L src/lib -o main main.cpp SDL_utils.cpp Paddle.cpp Ball.cpp Brick.cpp -lmingw32 -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf -lSDL2_mixer

@@ -1,38 +1,32 @@
 #include "Ball.h"
 #include <iostream>
 
-const int SCREEN_WIDTH = 1000;
-const int SCREEN_HEIGHT = 700;
+int vX = 5; 
+int vY = 5;
 
-void renderBall(SDL_Renderer *renderer, Ball &Ball){
-    const int diameter = (Ball.radius * 2);
-    int x_rect = Ball.x - Ball.radius;
-    int y_rect = Ball.y - Ball.radius;
-
-    SDL_Rect ballRect = {x_rect, y_rect, diameter, diameter};
+void renderBall(SDL_Renderer* renderer, SDL_Rect ballRect) {
     SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
-    SDL_RenderFillRect(renderer, &ballRect);
+    SDL_RenderDrawRect(renderer, &ballRect);
 }
 
-void ballMove(Ball &ball) {
-    ball.x += ball.Vx;
-    ball.y += ball.Vy;
+void move(SDL_Rect &ballRect) {
+        ballRect.x = ballRect.x += vX;
+        ballRect.y = ballRect.y += vY;
 
-    if(ball.x - ball.radius < 0 || ball.x + ball.radius > SCREEN_WIDTH) {
-        ball.Vx = -ball.Vx ;
-    }
+        if(ballRect.x - radius < 0 || ballRect.x + radius > 1000) {
+            vX = -vX;
+        }
 
-    if(ball.y - ball.radius < 0 || ball.y + ball.radius > SCREEN_HEIGHT) {
-        ball.Vy = -ball.Vy ;
-    }
+        if(ballRect.y - radius < 0 || ballRect.y + radius > 700) {
+            vY = -vY;
+        }
 }
 
-
-bool handleCollision(Paddle &paddle, Ball &ball) {
-    if( ball.x + ball.radius > paddle.x && ball.x - ball.radius < paddle.x + paddle.width 
-   && ( ball.y + ball.radius > paddle.y && ball.y - ball.radius < paddle.y + paddle.height ) ) {
-            ball.Vy = -ball.Vy ;
-            return true;
+bool handleBallPaddleCollision(SDL_Rect &ballRect, Paddle& paddle) {
+    if(ballRect.x + radius > paddle.x && ballRect.x - radius < paddle.x + paddle.width &&
+       ballRect.y + radius > paddle.y && ballRect.y - radius < paddle.y + paddle.height) {
+        vY = -vY;
+        return true;
     }
     return false;
 }
