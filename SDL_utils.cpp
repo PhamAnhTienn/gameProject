@@ -21,8 +21,13 @@ void initSDL(SDL_Window* &window, SDL_Renderer* &renderer,const int SCREEN_WIDTH
     if (SDL_Init(SDL_INIT_EVERYTHING) != 0)
         logSDLError(std::cout, "SDL_Init", true);
 
-    if (!IMG_Init(IMG_INIT_PNG | IMG_INIT_JPG))
+    if (!IMG_Init(IMG_INIT_PNG | IMG_INIT_JPG)) 
         logErrorAndExit("SDL_image error: " + std::string(IMG_GetError()));
+    //init image
+
+    if( Mix_OpenAudio( 44100, MIX_DEFAULT_FORMAT, 2, 2048 ) < 0 )
+        logErrorAndExit( "SDL_mixer could not initialize! SDL_mixer Error: " + std::string(Mix_GetError()));
+    // init sound
 
     window = SDL_CreateWindow(WINDOW_TITLE.c_str(), SDL_WINDOWPOS_CENTERED,
        SDL_WINDOWPOS_CENTERED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
@@ -44,6 +49,7 @@ void quitSDL(SDL_Window* window, SDL_Renderer* renderer)
 	SDL_DestroyRenderer(renderer);
 	SDL_DestroyWindow(window);
     IMG_Quit();
+    Mix_Quit();
 	SDL_Quit();
 }
 

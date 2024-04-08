@@ -5,6 +5,7 @@
 #include <SDL2/SDL_ttf.h>
 #include "SDL_utils.h"
 #include "image.h"
+#include "Sound.h"
 #include "Paddle.h"
 #include "Ball.h"
 #include "Brick.h"
@@ -56,16 +57,29 @@ int main(int argc, char* argv[]) {
     SDL_Texture * paddleImage = loadTexture("assets/glasspaddle2.png", renderer);
     SDL_Texture * ballImage = loadTexture("assets/ballImage.png", renderer);
 
-    bool quit = false;
-    SDL_Event e;
+    Mix_Chunk* ballCollisionPaddle = loadSound("assets/collisionsound.wav");
 
-    while (!quit)
+    State gameState = MENU;
+
+    while (gameState == MENU) {
+        SDL_Event e;
+        while ( SDL_PollEvent(&e) != 0 ) {
+            if (e.type == SDL_QUIT) {
+                gameState = QUIT;
+            } else if () { // xử lí chuột
+
+            }
+        }
+    }
+
+    while (gameState == GAME)
     {
+        SDL_Event e;
         while ( SDL_PollEvent(&e) != 0 )
         {
             if (e.type == SDL_QUIT)
             {
-                quit = true;
+                gameState = QUIT;
             }
             else if( e.type == SDL_KEYDOWN )
             {
@@ -79,7 +93,9 @@ int main(int argc, char* argv[]) {
         }
 
         move(ballRect);
-        handleBallPaddleCollision(ballRect, paddle1);
+        if (handleBallPaddleCollision(ballRect, paddle1)) {
+            playChunk(ballCollisionPaddle);
+        }
         
         for(int i=0; i<COL*ROW; i++) {
             setBricks(i);
