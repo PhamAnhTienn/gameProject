@@ -29,6 +29,11 @@ void initSDL(SDL_Window* &window, SDL_Renderer* &renderer,const int SCREEN_WIDTH
         logErrorAndExit( "SDL_mixer could not initialize! SDL_mixer Error: " + std::string(Mix_GetError()));
     // init sound
 
+    if (TTF_Init() == -1) 
+        logErrorAndExit("SDL_ttf could not initialize! SDL_ttf Error: " + std::string(TTF_GetError()));
+    // init text
+
+
     window = SDL_CreateWindow(WINDOW_TITLE.c_str(), SDL_WINDOWPOS_CENTERED,
        SDL_WINDOWPOS_CENTERED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
     
@@ -50,6 +55,7 @@ void quitSDL(SDL_Window* window, SDL_Renderer* renderer)
 	SDL_DestroyWindow(window);
     IMG_Quit();
     Mix_Quit();
+    TTF_Quit();
 	SDL_Quit();
 }
 

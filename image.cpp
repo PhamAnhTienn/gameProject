@@ -19,3 +19,15 @@ void renderTexture(SDL_Texture *texture, int x, int y, int w, int h, SDL_Rendere
 	SDL_RenderCopy(renderer, texture, NULL, &dest);
 }
 
+void renderTextureText(SDL_Texture *texture, int x, int y, SDL_Renderer* renderer)
+{
+	SDL_Rect dest;
+	dest.x = x;
+	dest.y = y;
+	SDL_QueryTexture(texture, NULL, NULL, &dest.w, &dest.h);
+
+	SDL_RenderCopy(renderer, texture, NULL, &dest);
+}
+
+
+

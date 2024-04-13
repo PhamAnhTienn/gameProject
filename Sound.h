@@ -14,6 +14,6 @@ void playMusic(Mix_Music *gMusic);
 
 void playChunk(Mix_Chunk* gChunk);
 
-
+void stopBackgroundMusic();
 
 #endif

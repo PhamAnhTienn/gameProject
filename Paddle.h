@@ -17,7 +17,6 @@ public:
     }
 };
 
-void renderPaddle(SDL_Renderer *renderer, Paddle &paddle);
 void paddleMove(Paddle &paddle, bool moveLeft, bool moveRight);
 
 #endif

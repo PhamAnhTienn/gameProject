@@ -34,3 +34,7 @@ void playChunk(Mix_Chunk* gChunk) {
     }
 }
 
+void stopBackgroundMusic() {
+    Mix_HaltMusic();
+}
+
