@@ -4,6 +4,15 @@
 int vX = 3; 
 int vY = 3;
 
+void setBallRect(int x, int y, int radius, SDL_Rect &ballRect) {
+    const int diameter = (radius * 2);
+
+    int x_rect = x - radius;
+    int y_rect = y - radius;
+
+    ballRect = {x_rect, y_rect, diameter, diameter};
+}
+
 void move(SDL_Rect &ballRect) {
     ballRect.x = ballRect.x += vX;
     ballRect.y = ballRect.y += vY;

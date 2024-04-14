@@ -8,3 +8,9 @@ void resetBricks(bool bricks[]) {
     }
 }
 
+void setBricks(int i, SDL_Rect &brick) {
+    brick.w=(1000-(SPACING*COL))/COL;
+    brick.h=22;
+    brick.x=(((i%COL)+1)*SPACING)+((i%COL)*brick.w)-(SPACING/2);
+    brick.y=brick.h*3+(((i%ROW)+1)*SPACING)+((i%ROW)*brick.h)-(SPACING/2);
+}

@@ -14,4 +14,6 @@ using namespace std;
 
 void resetBricks(bool bricks[]);
 
+void setBricks(int i, SDL_Rect &brick);
+
 #endif
