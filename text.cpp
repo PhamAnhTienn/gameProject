@@ -9,9 +9,9 @@ TTF_Font* loadFont(const char* path, int size) {
     return gFont;
 }
 
-SDL_Texture* renderText(const char* text, TTF_Font* font, SDL_Color textColor, SDL_Renderer* renderer)
+SDL_Texture* renderText(string text, TTF_Font* font, SDL_Color textColor, SDL_Renderer* renderer)
 {
-    SDL_Surface* textSurface = TTF_RenderText_Solid( font, text, textColor );
+    SDL_Surface* textSurface = TTF_RenderText_Solid( font, text.c_str(), textColor );
     if( textSurface == nullptr ) {
         SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, "Render text surface %s", TTF_GetError());
         return nullptr;

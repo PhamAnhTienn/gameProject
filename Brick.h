@@ -14,6 +14,10 @@ using namespace std;
 
 void resetBricks(bool bricks[]);
 
+void resetBrickHits(int brickHits[]);
+
 void setBricks(int i, SDL_Rect &brick);
+
+bool isWinning(bool bricks[]);
 
 #endif

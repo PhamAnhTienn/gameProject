@@ -1,8 +1,8 @@
 #include "Ball.h"
 #include <iostream>
 
-int vX = 3; 
-int vY = 3;
+int vX = 5; 
+int vY = 5;
 
 void setBallRect(int x, int y, int radius, SDL_Rect &ballRect) {
     const int diameter = (radius * 2);

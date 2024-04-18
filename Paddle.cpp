@@ -1,6 +1,6 @@
 #include "Paddle.h"
 
-const int paddleSpeed  = 15;
+int paddleSpeed  = 15;
 const int SCREEN_WIDTH = 1000;
 
 void paddleMove( Paddle &paddle, bool moveLeft, bool moveRight ) {
