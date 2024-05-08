@@ -27,8 +27,8 @@ void move(SDL_Rect &ballRect) {
 }
 
 bool handleBallPaddleCollision(SDL_Rect &ballRect, Paddle& paddle) {
-    if(ballRect.x + radius > paddle.x && ballRect.x - radius < paddle.x + paddle.width &&
-       ballRect.y + radius > paddle.y && ballRect.y - radius < paddle.y + paddle.height) {
+    if(ballRect.x + 2*radius > paddle.x && ballRect.x < paddle.x + paddle.width &&
+       ballRect.y + 2*radius > paddle.y) {
         vY = -vY;
         return true;
     }

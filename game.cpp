@@ -257,7 +257,7 @@ void Game::easyGame() {
                             
         for(int i=0; i<COL*ROW; i++) {
             setBricks(i, brick);
-            if(SDL_HasIntersection( &ballRect, &brick ) && bricks[i]) {
+            if(handleBallandBrick( ballRect, brick ) && bricks[i]) {
                 score += 20;
                 scoreText = renderText("SCORE: " + to_string(score), scoreFont, color, renderer);
                 bricks[i] = false;
@@ -345,7 +345,7 @@ void Game::mediumGame() {
                             
         for(int i=0; i<COL*ROW; i++) {
             setBricks(i, brick);
-            if(SDL_HasIntersection( &ballRect, &brick ) && bricks[i]) {
+            if(handleBallandBrick( ballRect, brick ) && bricks[i]) {
                 brickHits[i]++;
                 playChunk(brickCollisionBall);
                 if (brickHits[i] >= 2) {
@@ -438,7 +438,7 @@ void Game::hardGame() {
                             
         for(int i=0; i<COL*ROW; i++) {
             setBricks(i, brick);
-            if(SDL_HasIntersection( &ballRect, &brick ) && bricks[i]) {
+            if(handleBallandBrick( ballRect, brick ) && bricks[i]) {
                 brickHits[i]++;
                 playChunk(brickCollisionBall);
                 if (brickHits[i] >= 3) {

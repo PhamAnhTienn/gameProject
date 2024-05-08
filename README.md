@@ -5,7 +5,7 @@ BTL LTNC
 
 2, GIỚI THIỆU: brickbreaker là một trò chơi kinh điển, nơi người chơi sử dụng thanh điều khiển để phá vỡ các viên gạch và ghi điểm.
 
-3, EM NGHĨ EM XỨNG ĐÁNG VỚI NGƯỠNG ĐIỂM TỪ 7,5 ĐẾN 8,5 ĐIỂM VÌ ĐÃ THỎA MÃN CÁC TIÊU CHÍ CỦA BAREM ĐIỂM: 
+3, EM NGHĨ EM XỨNG ĐÁNG VỚI NGƯỠNG ĐIỂM TỪ 7,5 ĐẾN 8,5 ĐIỂM VÌ ĐÃ THỎA MÃN TIÊU CHÍ CỦA BAREM ĐIỂM: 
 
 (1) Game tự viết có thuật toán nằm ngoài chương trình môn học (điểm đánh giá theo độ khó của thuật toán). hoặc
 

@@ -20,4 +20,6 @@ void setBricks(int i, SDL_Rect &brick);
 
 bool isWinning(bool bricks[]);
 
+bool handleBallandBrick( SDL_Rect &ballRect, SDL_Rect &brick);
+
 #endif
