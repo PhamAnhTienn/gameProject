@@ -17,11 +17,11 @@ void move(SDL_Rect &ballRect) {
     ballRect.x = ballRect.x += vX;
     ballRect.y = ballRect.y += vY;
 
-    if(ballRect.x - radius < 0 || ballRect.x + radius > 1000) {
+    if(ballRect.x < 0 || ballRect.x + 2*radius > 1000) {
         vX = -vX;
     }
 
-    if(ballRect.y - radius < 0 || ballRect.y + radius > 700) {
+    if(ballRect.y < 0 || ballRect.y + 2*radius > 700) {
         vY = -vY;
     }
 }
