@@ -14,3 +14,6 @@ BTL LTNC
 (3). Game phát triển từ code mẫu nhưng có thay đổi đáng kể về nội dung và bổ sung đáng kể các tính năng mới.  
 
 (điểm của loại (2) và  (3) đánh giá theo số những tính năng tự làm hoặc tự học như âm thanh, nhạc nền, texture, hoạt hình, chuyển động, thuật toán,....) 
+
+
+Result: 9đ
